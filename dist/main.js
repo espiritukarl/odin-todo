@@ -499,6 +499,15 @@ header {
   color: black;
 }
 
+.project__title {
+  border: none;
+  background-color: white;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  border-bottom: 1px solid white;
+}
+
 .open-task__content button {
   margin-top: 10px;
 }
@@ -512,8 +521,14 @@ input {
   color: #555;
 }
 
-.project__title:hover, .new__project-btn:hover, .home__button:hover, .project__title:hover {
+.new__project-btn:hover, .home__button:hover {
   background-color: #d6d6d650;
+}
+
+.project__title:hover {
+  border-color: black;
+  background-color: #ffdadaa1;
+  font-style: italic;
 }
 
 /* Task List Styles */
