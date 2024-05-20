@@ -7,7 +7,7 @@ export const createBtnProject = (homeBtn, project) => {
     const button = document.createElement("button")
     if (homeBtn) {
         button.classList.add("home__button")
-        button.innerHTML = `<i class="fa fa-home" aria-hidden="true"></i>Home`
+        button.innerHTML = `<i class="fa fa-home" aria-hidden="true"></i>  Home`
     }   
     else {
         button.classList.add(inputClassNames.proj)

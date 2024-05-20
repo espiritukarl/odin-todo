@@ -27,10 +27,15 @@ const openTaskDialog = (task) => {
     let dueDate = document.createElement("div")
     let priority = document.createElement("div")
     let complete = document.createElement("div")
+    let span = document.createElement("span")
+
+    task.description === "" ? span.textContent = "No description provided." : span.textContent = `${task.description}`
+    span.classList.add("task-description")
 
     projectName.textContent = `Project: ${task.origin}`
     title.textContent = `Title: ${task.title}`
-    description.textContent = `Description: ${task.description}`
+    description.textContent = "Description: "
+    description.append(span);
     dueDate.textContent = `Due date: ${task.dueDate}`
     priority.textContent = `Priority: ${task.priority}`
     complete.textContent = `Complete: ${task.complete ? "Yes" : "No"}`

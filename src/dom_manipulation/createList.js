@@ -20,11 +20,15 @@ export const createList = (project) => {
 
     project.tasks.forEach((task, index) => {
         const div = document.createElement("div")
+        div.classList.add("task-item")
+
         const individualTask = document.createElement("span")
         individualTask.classList.add('task')
+
         const span = document.createElement("span")
         const title = document.createElement("span")
         const date = document.createElement("span")
+        date.classList.add("task-date")
 
         title.textContent = task.title
         date.textContent = task.dueDate
@@ -36,8 +40,11 @@ export const createList = (project) => {
 
         div.append(span)
         if (task.complete) {
-            individualTask.classList.add('strikethrough')
+            div.classList.add('strikethrough')
+        } else {
+            div.classList.add(task.priority.toLowerCase().concat("-priority"))
         }
+
         div.append(individualTask)
         div.append(newRemoveButton(task, "task"))
         
@@ -74,9 +81,10 @@ const taskComplete = (index) => {
 
     input.checked = task.complete
     input.addEventListener('click', () => {
-        const individualTask = document.querySelectorAll('.task')
+        const taskItem = document.querySelectorAll('.task-item')
         task.complete = input.checked
-        individualTask[index].classList.toggle('strikethrough')
+        taskItem[index].classList.toggle('strikethrough')
+        taskItem[index].classList.toggle(task.priority.toLowerCase().concat("-priority"))
     })
 
     return input

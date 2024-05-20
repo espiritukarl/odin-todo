@@ -12,18 +12,27 @@
     <main id="content">
         <section class="sidebar__section">
             <div class="menu__section"></div>
-            <div class="project__section"></div>
+            <div class="project__section">
+                <h2>Projects</h2>
+            </div>
         </section>
 
         <dialog id="addTaskDialog" class="modal-content">
             <span id="closeAddTaskDialog" class="close">&times;</span>
             <form id="add-task-form">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" required>
-                <label for="description">Description</label>
-                <input type="text" id="description" name="description">
-                <label for="due-date">Date</label>
-                <input type="date" id="due-date" name="due-date" required>
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </span>
+                <span>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description">
+                </span>
+                <span>
+                    <label for="due-date">Date</label>
+                    <input type="date" id="due-date" name="due-date" required>
+                </span>
+
 
                 <div class="priority_section">
                     <label for="low">Low</label>
@@ -34,10 +43,12 @@
                     <input type="radio" id="high" name="priority" value="high" required>
                 </div>
 
-                <label for="complete">Complete</label>
-                <input type="checkbox" id="complete" name="complete">
+                <span>
+                    <label for="complete">Complete</label>
+                    <input type="checkbox" id="complete" name="complete">
+                    <button type="submit">Enter</button>
+                </span>
 
-                <button type="submit">Enter</button>
             </form>
         </dialog>
 
@@ -49,12 +60,19 @@
         <dialog id="editTaskDialog" class="modal-content">
             <span id="closeEditTaskDialog" class="close">&times;</span>
             <form id="edit-task-form">
-                <label for="title">Title</label>
-                <input type="text" id="edit-title" name="title" required>
-                <label for="description">Description</label>
-                <input type="text" id="edit-description" name="description">
-                <label for="due-date">Date</label>
-                <input type="date" id="edit-due-date" name="due-date" required>
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="edit-title" name="title" required>
+                </span>
+                <span>
+                    <label for="description">Description</label>
+                    <input type="text" id="edit-description" name="description">
+                </span>
+                <span>
+                    <label for="due-date">Date</label>
+                    <input type="date" id="edit-due-date" name="due-date" required>
+                </span>
+
 
                 <div class="priority_section">
                     <label for="low">Low</label>
@@ -65,10 +83,12 @@
                     <input type="radio" id="edit-high" name="priority" value="high" required>
                 </div>
 
-                <label for="complete">Complete</label>
-                <input type="checkbox" id="edit-complete" name="complete">
+                <span>
+                    <label for="complete">Complete</label>
+                    <input type="checkbox" id="edit-complete" name="complete">
+                    <button type="submit">Enter</button>
+                </span>
 
-                <button type="submit">Enter</button>
             </form>
         </dialog>
 

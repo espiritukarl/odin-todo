@@ -17,9 +17,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dom_manipulation_project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var _components_projectData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
 /* harmony import */ var _dom_manipulation_createBtnProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
-/* harmony import */ var _components_TodoHandler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(18);
+/* harmony import */ var _components_TodoHandler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
 /* harmony import */ var _dom_manipulation_createList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
-/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(19);
+/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(20);
 /* harmony import */ var _components_addTask__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(23);
 /* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(24);
 /* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_8__);
@@ -383,7 +383,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Modal Content/Box */
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1.2rem;
+  width: 65%;
+}
+
+.open-task__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.modal-content form span, .modal-content form div, .open-task__content div {
+  margin: 7.5px
 }
 
 /* The Close Button */
@@ -407,13 +430,160 @@ dialog::backdrop {
 
 /*================================================================================*/
 
+/* General Styles */
+body, html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Main Content Section */
+#content {
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  height: 92vh;
+}
+
+/* Sidebar Section */
+.sidebar__section {
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.tasklist__section {
+  padding: 2rem;
+  flex: 3;
+}
+
+.menu__section,
+.project__section {
+  margin-bottom: 3rem;
+}
+
+.menu__section h2,
+.project__section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/*================================================================================*/
+
+/* Remove Button */
+.remove__project {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.new__project-btn, .home__button, .project__title, .accept__button, .reject__button, #add-task-btn, .modal-content form span button, .open-task__content button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.open-task__content button {
+  margin-top: 10px;
+}
+
+input {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.remove__project:hover {
+  color: #555;
+}
+
+.project__title:hover, .new__project-btn:hover, .home__button:hover, .project__title:hover {
+  background-color: #d6d6d650;
+}
+
+/* Task List Styles */
 .task-list {
+  padding: 0;
   display: flex;
   flex-direction: column;
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #e8fffd;
+  margin-bottom: 1.1rem;
+  cursor: pointer;
+}
+
+.high-priority {
+  box-shadow: -0.4em 0 .4em #ffbebe;
+}
+.medium-priority {
+  box-shadow: -0.4em 0 .4em #bee5ff;
+}
+
+.low-priority {
+  box-shadow: -0.4em 0 .4em #c0ffbe;
+}
+
+.task-list-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content:space-between;
+  margin-left: 15px;
 }
 
 .strikethrough {
   text-decoration: line-through;
+  color: rgb(167, 0, 0);
+  background-color: #aaa;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.task span {
+  margin-right: 1rem;
+}
+
+input[type="checkbox"], input[type="radio"]  {
+  transform: scale(1.5);
+  margin: 5px;
+  cursor: pointer;
+}
+
+label, input[type="date"] {
+  cursor: pointer;
+}
+
+.task-date {
+  font-style: italic;
+  font-size: 1rem;
 }`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -534,8 +704,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _deleteDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony import */ var _createBtnProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var _components_projectData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(15);
-/* harmony import */ var _components_TodoHandler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(18);
-/* harmony import */ var _components_removeTask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(17);
+/* harmony import */ var _components_TodoHandler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
+/* harmony import */ var _components_removeTask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(18);
 /* harmony import */ var _createList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(14);
 
 
@@ -662,7 +832,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var _createList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony import */ var _components_projectData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
-/* harmony import */ var _openTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
+/* harmony import */ var _openTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
 
 
 
@@ -672,7 +842,7 @@ const createBtnProject = (homeBtn, project) => {
     const button = document.createElement("button")
     if (homeBtn) {
         button.classList.add("home__button")
-        button.innerHTML = `<i class="fa fa-home" aria-hidden="true"></i>Home`
+        button.innerHTML = `<i class="fa fa-home" aria-hidden="true"></i>  Home`
     }   
     else {
         button.classList.add(_components_projectData__WEBPACK_IMPORTED_MODULE_2__.inputClassNames.proj)
@@ -702,7 +872,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_projectData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 /* harmony import */ var _deleteDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony import */ var _createBtnAddTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
-/* harmony import */ var _components_removeTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
+/* harmony import */ var _components_removeTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
 
 
@@ -726,11 +896,15 @@ const createList = (project) => {
 
     project.tasks.forEach((task, index) => {
         const div = document.createElement("div")
+        div.classList.add("task-item")
+
         const individualTask = document.createElement("span")
         individualTask.classList.add('task')
+
         const span = document.createElement("span")
         const title = document.createElement("span")
         const date = document.createElement("span")
+        date.classList.add("task-date")
 
         title.textContent = task.title
         date.textContent = task.dueDate
@@ -742,8 +916,11 @@ const createList = (project) => {
 
         div.append(span)
         if (task.complete) {
-            individualTask.classList.add('strikethrough')
+            div.classList.add('strikethrough')
+        } else {
+            div.classList.add(task.priority.toLowerCase().concat("-priority"))
         }
+
         div.append(individualTask)
         div.append(newRemoveButton(task, "task"))
         
@@ -780,9 +957,10 @@ const taskComplete = (index) => {
 
     input.checked = task.complete
     input.addEventListener('click', () => {
-        const individualTask = document.querySelectorAll('.task')
+        const taskItem = document.querySelectorAll('.task-item')
         task.complete = input.checked
-        individualTask[index].classList.toggle('strikethrough')
+        taskItem[index].classList.toggle('strikethrough')
+        taskItem[index].classList.toggle(task.priority.toLowerCase().concat("-priority"))
     })
 
     return input
@@ -808,7 +986,7 @@ const inputClassNames = {
 }
 
 const menuItems = {
-    home: "Home"
+    home: `Home`
 }   
 
 
@@ -821,7 +999,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   newTaskBtn: () => (/* binding */ newTaskBtn)
 /* harmony export */ });
-/* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 
 
 const newTaskBtn = () => {
@@ -829,7 +1007,7 @@ const newTaskBtn = () => {
     const modal = document.getElementById("addTaskDialog");
 
     btn.setAttribute("id", "add-task-btn")
-    btn.innerHTML = `<i class="fa fa-plus" aria-hidden="true"></i>`
+    btn.innerHTML = `<i class="fa fa-plus" aria-hidden="true"></i> Add New Task`
 
     btn.onclick = function() {
         _components_modal__WEBPACK_IMPORTED_MODULE_0__.addtaskModal.showModal()
@@ -844,12 +1022,59 @@ const newTaskBtn = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addtaskModal: () => (/* binding */ addtaskModal),
+/* harmony export */   editTaskModal: () => (/* binding */ editTaskModal),
+/* harmony export */   modalFnc: () => (/* binding */ modalFnc),
+/* harmony export */   openTaskModal: () => (/* binding */ openTaskModal)
+/* harmony export */ });
+const addtaskModal = document.getElementById("addTaskDialog");
+const editTaskModal = document.getElementById("editTaskDialog");
+const openTaskModal = document.getElementById("openTaskDialog");
+
+function modalFnc() {
+    const addTaskForm = document.getElementById("add-task-form")
+    const editTaskForm = document.getElementById("edit-task-form")
+    const openTaskDiv = document.getElementById("openTaskModal")
+
+    const closeAddtask = document.getElementById("closeAddTaskDialog");
+    const closeOpenTask = document.getElementById("closeOpenTaskDialog");
+    const closeEditTask = document.getElementById("closeEditTaskDialog");
+
+    closeAddtask.addEventListener("click", () => {
+        addtaskModal.close()
+        addTaskForm.reset()
+    })
+    closeOpenTask.addEventListener("click", () => {
+        openTaskModal.close()
+    })
+    closeEditTask.addEventListener("click", () => {
+        editTaskModal.close()
+        editTaskForm.reset()
+    })
+
+    addtaskModal.addEventListener("click", () => addtaskModal.close())
+    editTaskModal.addEventListener("click", () => editTaskModal.close())
+    openTaskModal.addEventListener("click", () => openTaskModal.close())
+
+    addTaskForm.addEventListener("click", (event) => event.stopPropagation())
+    editTaskForm.addEventListener("click", (event) => event.stopPropagation())
+    openTaskDiv.addEventListener("click", (event) => event.stopPropagation())
+}
+
+
+/***/ }),
+/* 18 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   removeTask: () => (/* binding */ removeTask)
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _TodoHandler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var _TodoHandler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
 /* harmony import */ var _dom_manipulation_createList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
-/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
+/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
 
 
 
@@ -868,7 +1093,7 @@ const removeTask = (task) => {
 }   
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -916,7 +1141,7 @@ const addTodo = (project, task) => {
 }
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -926,7 +1151,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var _components_editTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
-/* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
+/* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(17);
 /* harmony import */ var _deleteDOM__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
 
 
@@ -957,10 +1182,15 @@ const openTaskDialog = (task) => {
     let dueDate = document.createElement("div")
     let priority = document.createElement("div")
     let complete = document.createElement("div")
+    let span = document.createElement("span")
+
+    task.description === "" ? span.textContent = "No description provided." : span.textContent = `${task.description}`
+    span.classList.add("task-description")
 
     projectName.textContent = `Project: ${task.origin}`
     title.textContent = `Title: ${task.title}`
-    description.textContent = `Description: ${task.description}`
+    description.textContent = "Description: "
+    description.append(span);
     dueDate.textContent = `Due date: ${task.dueDate}`
     priority.textContent = `Priority: ${task.priority}`
     complete.textContent = `Complete: ${task.complete ? "Yes" : "No"}`
@@ -987,53 +1217,6 @@ const openTaskDialog = (task) => {
 }
 
 /***/ }),
-/* 20 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addtaskModal: () => (/* binding */ addtaskModal),
-/* harmony export */   editTaskModal: () => (/* binding */ editTaskModal),
-/* harmony export */   modalFnc: () => (/* binding */ modalFnc),
-/* harmony export */   openTaskModal: () => (/* binding */ openTaskModal)
-/* harmony export */ });
-const addtaskModal = document.getElementById("addTaskDialog");
-const editTaskModal = document.getElementById("editTaskDialog");
-const openTaskModal = document.getElementById("openTaskDialog");
-
-function modalFnc() {
-    const addTaskForm = document.getElementById("add-task-form")
-    const editTaskForm = document.getElementById("edit-task-form")
-    const openTaskDiv = document.getElementById("openTaskModal")
-
-    const closeAddtask = document.getElementById("closeAddTaskDialog");
-    const closeOpenTask = document.getElementById("closeOpenTaskDialog");
-    const closeEditTask = document.getElementById("closeEditTaskDialog");
-
-    closeAddtask.addEventListener("click", () => {
-        addtaskModal.close()
-        addTaskForm.reset()
-    })
-    closeOpenTask.addEventListener("click", () => {
-        openTaskModal.close()
-    })
-    closeEditTask.addEventListener("click", () => {
-        editTaskModal.close()
-        editTaskForm.reset()
-    })
-
-    addtaskModal.addEventListener("click", () => addtaskModal.close())
-    editTaskModal.addEventListener("click", () => editTaskModal.close())
-    openTaskModal.addEventListener("click", () => openTaskModal.close())
-
-    addTaskForm.addEventListener("click", (event) => event.stopPropagation())
-    editTaskForm.addEventListener("click", (event) => event.stopPropagation())
-    openTaskDiv.addEventListener("click", (event) => event.stopPropagation())
-}
-
-
-/***/ }),
 /* 21 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1044,8 +1227,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var _dom_manipulation_createList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
-/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
+/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
 /* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(22);
 
 
@@ -1115,11 +1298,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addTask: () => (/* binding */ addTask)
 /* harmony export */ });
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
-/* harmony import */ var _TodoHandler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* harmony import */ var _TodoHandler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _dom_manipulation_createList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
-/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
+/* harmony import */ var _dom_manipulation_openTask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(20);
 /* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
 
 

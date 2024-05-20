@@ -8,5 +8,5 @@ export const inputClassNames = {
 }
 
 export const menuItems = {
-    home: "Home"
+    home: `Home`
 }   

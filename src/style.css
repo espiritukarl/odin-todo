@@ -4,7 +4,30 @@
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1.2rem;
+  width: 65%;
+}
+
+.open-task__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.modal-content form span, .modal-content form div, .open-task__content div {
+  margin: 7.5px
 }
 
 /* The Close Button */
@@ -28,11 +51,158 @@ dialog::backdrop {
 
 /*================================================================================*/
 
+/* General Styles */
+body, html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Main Content Section */
+#content {
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  height: 92vh;
+}
+
+/* Sidebar Section */
+.sidebar__section {
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.tasklist__section {
+  padding: 2rem;
+  flex: 3;
+}
+
+.menu__section,
+.project__section {
+  margin-bottom: 3rem;
+}
+
+.menu__section h2,
+.project__section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/*================================================================================*/
+
+/* Remove Button */
+.remove__project {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.new__project-btn, .home__button, .project__title, .accept__button, .reject__button, #add-task-btn, .modal-content form span button, .open-task__content button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.open-task__content button {
+  margin-top: 10px;
+}
+
+input {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.remove__project:hover {
+  color: #555;
+}
+
+.project__title:hover, .new__project-btn:hover, .home__button:hover, .project__title:hover {
+  background-color: #d6d6d650;
+}
+
+/* Task List Styles */
 .task-list {
+  padding: 0;
   display: flex;
   flex-direction: column;
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #e8fffd;
+  margin-bottom: 1.1rem;
+  cursor: pointer;
+}
+
+.high-priority {
+  box-shadow: -0.4em 0 .4em #ffbebe;
+}
+.medium-priority {
+  box-shadow: -0.4em 0 .4em #bee5ff;
+}
+
+.low-priority {
+  box-shadow: -0.4em 0 .4em #c0ffbe;
+}
+
+.task-list-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content:space-between;
+  margin-left: 15px;
 }
 
 .strikethrough {
   text-decoration: line-through;
+  color: rgb(167, 0, 0);
+  background-color: #aaa;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.task span {
+  margin-right: 1rem;
+}
+
+input[type="checkbox"], input[type="radio"]  {
+  transform: scale(1.5);
+  margin: 5px;
+  cursor: pointer;
+}
+
+label, input[type="date"] {
+  cursor: pointer;
+}
+
+.task-date {
+  font-style: italic;
+  font-size: 1rem;
 }

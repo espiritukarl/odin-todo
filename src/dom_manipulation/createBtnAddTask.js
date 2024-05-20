@@ -5,7 +5,7 @@ export const newTaskBtn = () => {
     const modal = document.getElementById("addTaskDialog");
 
     btn.setAttribute("id", "add-task-btn")
-    btn.innerHTML = `<i class="fa fa-plus" aria-hidden="true"></i>`
+    btn.innerHTML = `<i class="fa fa-plus" aria-hidden="true"></i> Add New Task`
 
     btn.onclick = function() {
         addtaskModal.showModal()
