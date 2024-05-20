@@ -383,6 +383,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Modal Content/Box */
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 25px;
   width: 40%; /* Could be more or less, depending on screen size */
 }
 
@@ -581,9 +582,15 @@ label, input[type="date"] {
   cursor: pointer;
 }
 
-.task-date {
+.task-date, .task-description {
   font-style: italic;
   font-size: 1rem;
+}
+
+.open-task__content div * {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -1183,14 +1190,16 @@ const openTaskDialog = (task) => {
     let priority = document.createElement("div")
     let complete = document.createElement("div")
     let span = document.createElement("span")
+    let descDiv = document.createElement("div")
 
     task.description === "" ? span.textContent = "No description provided." : span.textContent = `${task.description}`
     span.classList.add("task-description")
 
     projectName.textContent = `Project: ${task.origin}`
     title.textContent = `Title: ${task.title}`
-    description.textContent = "Description: "
-    description.append(span);
+    descDiv.textContent = "Description:"
+    description.append(descDiv)
+    description.append(span)
     dueDate.textContent = `Due date: ${task.dueDate}`
     priority.textContent = `Priority: ${task.priority}`
     complete.textContent = `Complete: ${task.complete ? "Yes" : "No"}`
