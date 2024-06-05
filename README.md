@@ -18,4 +18,8 @@ Complete with the following features:
 - Completion of task
 - Modal for adding and editing task
 
-  Live Preview: https://espiritukarl.github.io/odin-todo/
+Features to Add:
+- Remaining time for task
+- Trashed tasks button
+
+Live Preview: https://espiritukarl.github.io/odin-todo/
