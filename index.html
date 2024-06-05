@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main id="content">
+        <section class="sidebar__section">
+            <div class="menu__section"></div>
+            <div class="project__section">
+                <h2>Projects</h2>
+            </div>
+        </section>
+
+        <dialog id="addTaskDialog" class="modal-content">
+            <span id="closeAddTaskDialog" class="close">&times;</span>
+            <form id="add-task-form">
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </span>
+                <span>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description">
+                </span>
+                <span>
+                    <label for="due-date">Date</label>
+                    <input type="date" id="due-date" name="due-date" required>
+                </span>
+
+
+                <div class="priority_section">
+                    <label for="low">Low</label>
+                    <input type="radio" id="low" name="priority" value="low" required>
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="medium" name="priority" value="medium" required>
+                    <label for="high">High</label>
+                    <input type="radio" id="high" name="priority" value="high" required>
+                </div>
+
+                <span>
+                    <label for="complete">Complete</label>
+                    <input type="checkbox" id="complete" name="complete">
+                    <button type="submit">Enter</button>
+                </span>
+
+            </form>
+        </dialog>
+
+        <dialog id="openTaskDialog" class="modal-content">
+            <span id="closeOpenTaskDialog" class="close">&times;</span>
+            <div id="openTaskModal"></div>
+        </dialog>
+
+        <dialog id="editTaskDialog" class="modal-content">
+            <span id="closeEditTaskDialog" class="close">&times;</span>
+            <form id="edit-task-form">
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="edit-title" name="title" required>
+                </span>
+                <span>
+                    <label for="description">Description</label>
+                    <input type="text" id="edit-description" name="description">
+                </span>
+                <span>
+                    <label for="due-date">Date</label>
+                    <input type="date" id="edit-due-date" name="due-date" required>
+                </span>
+
+
+                <div class="priority_section">
+                    <label for="low">Low</label>
+                    <input type="radio" id="edit-low" name="priority" value="low" required>
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="edit-medium" name="priority" value="medium" required>
+                    <label for="high">High</label>
+                    <input type="radio" id="edit-high" name="priority" value="high" required>
+                </div>
+
+                <span>
+                    <label for="complete">Complete</label>
+                    <input type="checkbox" id="edit-complete" name="complete">
+                    <button type="submit">Enter</button>
+                </span>
+
+            </form>
+        </dialog>
+
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
